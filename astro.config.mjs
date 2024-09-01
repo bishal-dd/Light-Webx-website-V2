@@ -44,5 +44,5 @@ export default defineConfig({
     clientPrerender: true,
     directRenderScript: true,
   },
-  adapter: vercelStatic({ webAnalytics: { enabled: true } }),
+  adapter: vercelStatic(),
 });
