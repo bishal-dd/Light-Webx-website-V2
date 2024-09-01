@@ -1,0 +1,29 @@
+{
+  "subTitle": "Here are some of the most frequently asked questions.",
+  "faqs": [
+    {
+      "question": "Do I need a website redesign?",
+      "answer": "If your website is outdated, non-mobile-friendly, or not generating leads, then a redesign might be beneficial. We can help you evaluate your current website and recommend the best course of action."
+    },
+    {
+      "question": "Will my website be mobile-friendly?",
+      "answer": "Absolutely! In today's digital landscape, a responsive website that adapts perfectly to all devices (desktops, tablets, phones) is essential. All websites we build are mobile-friendly for optimal user experience."
+    },
+    {
+      "question": "What makes your web development company different?",
+      "answer": "Our biggest strength is our product quality and performance unlike no other. We prioritize clear communication and collaboration throughout the process, ensuring a website that reflects your vision and achieves your goals."
+    },
+    {
+      "question": "How much does a website cost?",
+      "answer": "We understand budget is important. The cost of your website depends on several factors, including size, complexity, and features. We offer free consultations to discuss your needs and provide a custom quote."
+    },
+    {
+      "question": "How long does it take to build a website?",
+      "answer": "The timeline for website development varies depending on the project's scope. Simple websites can be built in a few weeks, while complex projects may take longer. We'll provide a clear timeline during the initial consultation."
+    },
+    {
+      "question": "Do you offer ongoing website maintenance?",
+      "answer": "Yes, we offer website maintenance plans to ensure your website stays up-to-date, secure, and functioning smoothly. These plans can include software updates, security monitoring, and content management assistance."
+    }
+  ]
+}
