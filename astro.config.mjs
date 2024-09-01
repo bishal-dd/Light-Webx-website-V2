@@ -4,6 +4,8 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
@@ -26,17 +28,23 @@ export default defineConfig({
     tailwind(),
     sitemap({
       i18n: {
-        defaultLocale: "en", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
+        defaultLocale: "en",
+        // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
         locales: {
-          en: "en", // The `defaultLocale` value must present in `locales` keys
+          en: "en",
+          // The `defaultLocale` value must present in `locales` keys
           fr: "fr",
         },
       },
     }),
-
     compressor({
       gzip: false,
       brotli: true,
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
   output: "static",
