@@ -1,4 +1,4 @@
-import ogImageSrc from "@images/social.webp";
+import ogImageSrc from "@images/social.png";
 
 export const SITE = {
   title: "Light Webx",
