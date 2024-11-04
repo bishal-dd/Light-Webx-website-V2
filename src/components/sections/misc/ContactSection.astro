@@ -75,13 +75,31 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
+        heading="Location"
+        content="YDF, Thimphu, Bhutan"
+        isLinkVisible={true}
+        linkTitle="View Location"
+        linkURL="https://maps.app.goo.gl/NfsQRVcuRcMqQtV26"
+        isArrowVisible={true}
+        ><Icon name="house" />
+      </ContactIconBlock>
+      <ContactIconBlock
+      heading="Phone Number"
+      content="+975 - 17959259"
+      isLinkVisible={false}
+      linkTitle="Call"
+      linkURL="https://api.whatsapp.com/send?phone=17959259"
+      isArrowVisible={true}
+      ><Icon name="question" />
+    </ContactIconBlock>
+        <ContactIconBlock
           heading="Whatsapp"
           content="Message us on whatsapp. We'll get back to you immediately."
           isLinkVisible={true}
           linkTitle="Message"
           linkURL="https://api.whatsapp.com/send?phone=17959259"
           isArrowVisible={true}
-          ><Icon name="question" />
+          ><Icon name="chatBubble" />
         </ContactIconBlock>
        
         <ContactIconBlock
@@ -99,8 +117,9 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
         linkTitle="Message"
         linkURL="https://www.facebook.com/lightwebx"
         isArrowVisible={true}
-        ><Icon name="question" />
+        ><Icon name="facebookFooter" />
       </ContactIconBlock>
+     
       </div>
     </div>
   </div>

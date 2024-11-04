@@ -22,13 +22,17 @@ const footerLinks = [
     ],
   },
   {
-    section: "Contact Us",
+    section: "Reach Us",
     links: [
       {
         name: "+975-17959259",
         url: "https://api.whatsapp.com/send?phone=17959259",
       },
       { name: "contact@lightwebx.com", url: "mailto:contact@lightwebx.com" },
+      {
+        name: "YDF, Thimphu, Bhutan",
+        url: "https://maps.app.goo.gl/NfsQRVcuRcMqQtV26",
+      },
     ],
   },
 ];
