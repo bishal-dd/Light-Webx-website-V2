@@ -2,7 +2,7 @@
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Projects", url: "/products" },
-  { name: "Services", url: "/services" },
+  { name: "Services", url: "/service-plans" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
@@ -11,7 +11,8 @@ const footerLinks = [
   {
     section: "Our Products",
     links: [
-      { name: "Digital Paperwork", url: "https://digital-paperwork.com/" },
+      { name: "2QuickPaper", url: "https://www.2quickpaper.com/home" },
+      { name: "Software Guides", url: "https://www.softwareguide.dev/" },
     ],
   },
   {

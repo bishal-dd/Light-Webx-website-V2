@@ -4,6 +4,7 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import partytown from "@astrojs/partytown";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +26,7 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     tailwind(),
+    icon(),
     sitemap({
       i18n: {
         defaultLocale: "en",

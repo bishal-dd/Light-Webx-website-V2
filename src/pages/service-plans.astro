@@ -1,0 +1,157 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { Icon } from 'astro-icon/components'; // Optional: If you want to add icons
+
+const pageTitle: string = `Services | ${SITE.title}`;
+
+// Helper function to create WhatsApp links safely
+const createWhatsAppLink = (phone: string, message: string) => {
+  const baseUrl = "https://api.whatsapp.com/send";
+  const params = new URLSearchParams({
+    phone: phone,
+    text: message,
+  });
+  return `${baseUrl}?${params.toString()}`;
+};
+
+const phoneNumber = "97517959259"; // Your WhatsApp number including country code (e.g., 975 for Bhutan)
+
+// Example gigs with specific order links and potentially icons
+const gigs = [
+  {
+    title: "Static Website Development",
+    description: "Perfect for portfolios, landing pages, or simple business sites. Built fast, responsive, and SEO-friendly using modern tech like Astro or Next.js.",
+    price: "Starts from Nu. 30,000", // Using "Starts from" for clarity
+    orderLink: createWhatsAppLink(phoneNumber, "Hi Light WebX, I'm interested in your Static Website Development service."),
+    icon: "mdi:web", // Example icon name (using Material Design Icons) - requires astro-icon setup
+    samples: [ // <-- Added Samples
+      { label: "Travel Agency", url: "https://bhutan-ace-travel.vercel.app/" }, // Replace with actual URLs
+    ]
+
+  },
+  {
+    title: "Complex Web Application",
+    description: "Dynamic websites, interactive dashboards, e-commerce platforms, or full-stack apps with custom backend integration and APIs.",
+    price: "Starts from Nu. 80,000", // Added Nu. equivalent for consistency
+    orderLink: createWhatsAppLink(phoneNumber, "Hi Light WebX, I'm interested in your Complex Web Application service."),
+    icon: "mdi:cogs",// Example icon
+    samples: [ // <-- Added Samples
+      { label: "Software As A Service", url: "https://www.2quickpaper.com/home" }, // Replace with actual URLs
+      { label: "Digital Product", url: "https://www.softwareguide.dev/" },
+    ]
+
+  },
+  {
+    title: "Website Redesign & Optimization",
+    description: "Modernize your existing site's look, feel, speed, and user experience. Includes performance tuning and SEO improvements.",
+    price: "Nu. 20,000 - Nu. 70,000",
+    orderLink: createWhatsAppLink(phoneNumber, "Hi Light WebX, I'm interested in your Website Redesign & Optimization service."),
+    icon: "mdi:brush-variant", // Example icon
+    samples: [ // <-- Added Samples
+     
+    ]
+  },
+  // Add more services if needed
+  // {
+  //   title: "API Development",
+  //   description: "Building robust and scalable RESTful or GraphQL APIs for your applications.",
+  //   price: "Custom Quote",
+  //   orderLink: createWhatsAppLink(phoneNumber, "Hi Light WebX, I'm interested in your API Development service."),
+  //   icon: "mdi:api"
+  // },
+];
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/services`, // Use SITE constant
+    "url": `${SITE.url}/services`,  // Use SITE constant
+    "name": pageTitle,
+    "description": "Explore professional web development services offered by Light WebX, including static sites, complex applications, and website redesigns.", // More specific description
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": SITE.url,
+      "name": SITE.title,
+      "description": SITE.description
+    },
+    "inLanguage": "en-US"
+    // Optional: Add specific service offerings to structured data if desired
+  }}
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+        Our Services
+      </h1>
+      <p class="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        From simple landing pages to complex web applications, we provide tailored solutions to bring your vision online.
+      </p>
+    </div>
+
+   {/* Service Cards Grid */}
+   <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {gigs.map((gig) => (
+      <div class="flex flex-col bg-white dark:bg-gray-600 dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-black/20 overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary/30 hover:border-primary/30 dark:hover:border-sky-600 hover:-translate-y-1">
+        {/* Icon Area */}
+        {gig.icon && (
+          <div class="p-6 bg-primary/5 dark:bg-slate-700/50 text-center border-b border-gray-200 dark:border-slate-700">
+            {/* Using slate-700/50 provides a subtle, slightly different dark background */}
+            <Icon name={gig.icon} class="h-12 w-12 mx-auto text-primary dark:text-sky-400" />
+          </div>
+        )}
+
+        {/* Content Area */}
+        <div class="p-6 flex flex-col flex-grow">
+          <h2 class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">{gig.title}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-5 flex-grow">{gig.description}</p> {/* Lighter gray text for description */}
+                      {/* --- Sample Links Section --- */}
+                      {gig.samples && gig.samples.length > 0 && (
+              <div class="mb-5 pt-4 border-t border-gray-200 dark:border-slate-600/50">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Examples</h4>
+                {/* Here is the parent list container: */}
+                <ul class="space-y-2">
+                  {gig.samples.map(sample => (
+                    // And here is the list item, directly inside the UL:
+                    <li>
+                      <a
+                        href={sample.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center text-sm text-primary dark:text-sky-400 hover:text-primary/80 dark:hover:text-sky-300 hover:underline"
+                      >
+                        {sample.label}
+                        <Icon name="mdi:open-in-new" class="ml-1 h-4 w-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {/* --- End Sample Links Section --- */}
+
+          {/* Footer Area (Price & Button) */}
+          <div class="mt-auto pt-5 border-t border-gray-200 dark:border-slate-600"> {/* Slightly lighter border */}
+             <div class="text-lg font-bold text-primary dark:text-sky-400 mb-4">{gig.price}</div>
+             <a
+               href={gig.orderLink}
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center bg-primary hover:bg-primary/90 dark:bg-sky-600 dark:hover:bg-sky-500 dark:text-white px-6 py-3 rounded-lg text-center font-medium transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-slate-800 dark:focus:ring-sky-500" 
+             >
+               Order Now
+               <Icon name="mdi:arrow-right" class="ml-2 h-5 w-5" /> {/* Added example icon */}
+             </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+    
+
+  </section>
+</MainLayout>
